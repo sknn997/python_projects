@@ -1,0 +1,167 @@
+/* Reset defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Background animation */
+body {
+    background: linear-gradient(-45deg, #ff6b6b, #f8d800, #6a82fb, #fc5c7d);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Card / Table common style */
+.card, .table-users {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1.5s ease-in-out;
+    width: 400px;
+    text-align: center;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Headings */
+h1, .header {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Form layout */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Floating label inputs */
+.input-group {
+    position: relative;
+    width: 100%;
+}
+.input-group input {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 1rem;
+    width: 100%;
+}
+.input-group label {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    pointer-events: none;
+    transition: 0.3s ease all;
+}
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 8px;
+    font-size: 0.8rem;
+    color: #f8d800;
+    text-shadow: 0 0 5px rgba(255,255,255,0.6);
+}
+
+/* Animated dropdown */
+.select-wrapper {
+    position: relative;
+}
+.select-wrapper select {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    appearance: none;
+    width: 100%;
+    background-image: linear-gradient(45deg, transparent 50%, white 50%), 
+                      linear-gradient(135deg, white 50%, transparent 50%);
+    background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px);
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+    transition: 0.3s;
+}
+.select-wrapper select:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+.select-wrapper select option {
+    color: black;
+    opacity: 0;
+    transform: translateY(-5px);
+    animation: optionFade 0.3s ease forwards;
+}
+.select-wrapper select:focus option {
+    opacity: 1;
+    transform: translateY(0);
+}
+@keyframes optionFade {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Submit button */
+input[type="submit"] {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(90deg, #ff6b6b, #f8d800, #6a82fb);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.4s;
+    background-size: 200% auto;
+}
+input[type="submit"]:hover {
+    background-position: right center;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+/* Shake animation */
+.shake {
+    animation: shakeAnim 0.4s ease;
+}
+@keyframes shakeAnim {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-8px); }
+    40%, 80% { transform: translateX(8px); }
+}
+
+/* Result text glow */
+h2, .table-users div, .table-users p {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+@keyframes glow {
+    from { text-shadow: 0 0 5px #fff, 0 0 15px #f8d800, 0 0 25px #f8d800; }
+    to { text-shadow: 0 0 10px #fff, 0 0 20px #6a82fb, 0 0 30px #6a82fb; }
+}

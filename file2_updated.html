@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Review Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_updated.css') }}">
+</head>
+<body>
+    <div class="table-users">
+        <div class="header">Calculation Result</div>
+        <div class="result-display">{{ result }}</div>
+    </div>
+    <!-- Fade-in & Scale Animation -->
+    <script>
+    const resultEl = document.querySelector(".result-display");
+    resultEl.style.opacity = 0;
+    resultEl.style.transform = "scale(0.8)";
+    setTimeout(() => {
+        resultEl.style.transition = "all 0.5s ease";
+        resultEl.style.opacity = 1;
+        resultEl.style.transform = "scale(1)";
+    }, 200);
+    </script>
+</body>
+</html>
